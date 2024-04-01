@@ -1,0 +1,9 @@
+FROM ubuntu:22.04
+
+# Fix locale to avoid warnings:
+ENV LANG en_US.UTF-8
+
+COPY ./prepare-ubuntu.sh /home/
+
+# Setup needed packages
+RUN chmod +x /home/prepare-ubuntu.sh && /home/prepare-ubuntu.sh
