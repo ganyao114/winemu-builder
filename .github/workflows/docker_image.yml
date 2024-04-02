@@ -40,14 +40,14 @@ jobs:
         # A file, directory or wildcard pattern that describes what to upload
         path: imagefs.tar.zst
     - name: Login to GHCR
-      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && github.repository == 'ganyao114/winemu-builder'
+      if: github.ref == 'refs/heads/main' && github.repository == 'ganyao114/winemu-builder'
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Push
-      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && github.repository == 'ganyao114/winemu-builder'
+      if: github.ref == 'refs/heads/main' && github.repository == 'ganyao114/winemu-builder'
       run: |
         # ghcr.io seem to be unstable sometimes. It may suddenly drop connection
         # during docker push when some layers are already uploaded. The workaround
