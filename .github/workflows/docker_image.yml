@@ -7,7 +7,6 @@ on:
     paths:
     - 'Dockerfile.rootfs'
     - 'Dockerfile.builder'
-  workflow_dispatch:
 
 jobs:
   update:
