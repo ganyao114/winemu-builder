@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e -u
 
-BUILDER_SCRIPTDIR=$(cd "$(realpath "$(dirname "$0")")"; cd ..; pwd)
+BUILDER_SCRIPTDIR=$(cd "$(realpath "$(dirname "$0")")"; pwd)
 
 CONTAINER_HOME_DIR=/home/builder
 UNAME=$(uname)
@@ -10,7 +10,7 @@ if [ "$UNAME" = Darwin ]; then
 	REPOROOT=$PWD
 	SEC_OPT=""
 else
-	REPOROOT="$(dirname $(readlink -f $0))/../"
+	REPOROOT="$(dirname $(readlink -f $0))"
 	SEC_OPT=" --security-opt seccomp=$REPOROOT/profile.json"
 fi
 

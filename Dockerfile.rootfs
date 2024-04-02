@@ -7,3 +7,5 @@ COPY ./prepare-ubuntu.sh /home/
 
 # Setup needed packages
 RUN chmod +x /home/prepare-ubuntu.sh && /home/prepare-ubuntu.sh
+
+COPY ./x86_64-linux-gnu /lib/x86_64-linux-gnu

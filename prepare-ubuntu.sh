@@ -24,7 +24,7 @@ rm -r dri
 rm -r libLLVM-9.so
 rm -r libLLVM-9.so.1
 
-rm -r /root/prepare-ubuntu.sh
+rm -r /home/prepare-ubuntu.sh
 rm -r /var/lib/apt/lists/*
 
 exit

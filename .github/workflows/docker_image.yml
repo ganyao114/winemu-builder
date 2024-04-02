@@ -29,7 +29,7 @@ jobs:
         docker tag ganyao114/winemu-rootfs:latest ghcr.io/ganyao114/winemu-rootfs:latest
         docker build --platform ${{ matrix.platform }} --tag ganyao114/winemu-builder:latest --file Dockerfile.builder .
         docker tag ganyao114/winemu-builder:latest ghcr.io/ganyao114/winemu-builder:latest
-        sudo docker create --name temp_container ganyao114/winemu-rootfs
+        docker create --name temp_container ganyao114/winemu-rootfs
         docker export temp_container > imagefs.tar
         zstd --ultra -22 imagefs.tar
     - name: Upload rootfs
