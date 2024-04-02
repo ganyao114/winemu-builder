@@ -32,8 +32,9 @@ jobs:
         docker tag ganyao114/winemu-rootfs:latest ghcr.io/ganyao114/winemu-rootfs:latest
         docker build --platform ${{ matrix.platform }} --tag ganyao114/winemu-builder:latest --file Dockerfile.builder .
         docker tag ganyao114/winemu-builder:latest ghcr.io/ganyao114/winemu-builder:latest
-        docker run --rm ganyao114/winemu-rootfs:latest tar -C / -c . > imagefs.tar
-    - name: Upload demo
+        sudo docker create --name temp_container ganyao114/winemu-rootfs
+        docker export temp_container > imagefs.tar
+    - name: Upload rootfs
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
