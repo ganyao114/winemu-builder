@@ -2,11 +2,9 @@ name: Docker image
 
 on:
   push:
-    branches:
-    - main
-    paths:
-    - 'Dockerfile.rootfs'
-    - 'Dockerfile.builder'
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   update:
